@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
         verifyStoragePermissions(this);
 
-        showResults();
     }
 
     private void showResults() {
@@ -78,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
                     text.append(key);
                     text.append('\n');
-                    break;
                 } else {
 
                 }
@@ -88,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         catch (IOException e) {
             Log.d("TuyaKeyGrab", "file open error");
             e.printStackTrace();
+
+            text.append("file open error");
+            text.append(e.getLocalizedMessage());
+
         }
 
         //Find the view by its id
