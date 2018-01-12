@@ -13,4 +13,4 @@ $ExternalStorageDirectory/Android/data/com.efamily.cloud/cache/1.abj
 app-debug.apk is the compiled app, v0.1 in [Releases Tab](https://github.com/bobalob/TuyaKeyGrab/releases)
 
 
-Original idea from [Exilit](https://github.com/codetheweb/tuyapi)
+Original idea from [Exilit](https://github.com/exilit)
