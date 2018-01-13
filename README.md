@@ -3,6 +3,8 @@
 ### Grabs localKey from eFamilyCloud app cache file
 
 * Install and login to eFamilyCloud (preferably in an emulator)
+[Play Store Link](https://play.google.com/store/apps/details?id=com.efamily.cloud&hl=en)
+
 * Run the app to show the localKey for your device. 
 * App gathers all localKey messages from the following file:
 
