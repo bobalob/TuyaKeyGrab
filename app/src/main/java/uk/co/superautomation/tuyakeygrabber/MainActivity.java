@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param activity
      */
-    public static void verifyStoragePermissions(Activity activity) {
+    public void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
 
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                     PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE
             );
+        } else {
+            showResults();
         }
     }
 
@@ -84,18 +86,23 @@ public class MainActivity extends AppCompatActivity {
             br.close();
         }
         catch (IOException e) {
-            Log.d("TuyaKeyGrab", "file open error");
+            Log.d("TuyaKeyGrab", "file IO error");
             e.printStackTrace();
 
             text.append("file open error");
             text.append(e.getLocalizedMessage());
+        }
+        catch (Exception e) {
+            Log.d("TuyaKeyGrab", "file error");
+            e.printStackTrace();
 
+            text.append("file open error");
+            text.append(e.getLocalizedMessage());
         }
 
-        //Find the view by its id
         TextView tv = findViewById(R.id.textView);
 
-        //Set the text
+        if (text.length() == 0) {text.append("No file content");}
         tv.setText(text.toString());
     }
 
