@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
         File family = new File(storage,E_FAMILY_CLOUD_FILE);
         StringBuilder text = new StringBuilder();
+        text.append("devId: localKey");
+        text.append('\n');
         Log.d("TuyaKeyGrab", "file path:" + family.getAbsolutePath());
         Log.d("TuyaKeyGrab", "file exists:" + family.exists());
 
@@ -77,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
                     String[] parts = line.split("localKey");
                     String key = parts[1].split("\"")[2];
 
-                    text.append(key);
+                    String[] moreParts = line.split("devId");
+                    String devId = moreParts[1].split("\"")[2];
+
+                    text.append(devId + ": " + key);
                     text.append('\n');
                 } else {
 
