@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Storage Permissions
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
-    private static String[] PERMISSIONS_STORAGE = {
+    private static final String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
      *
      * If the app does not has permission then the user will be prompted to grant permissions
      *
-     * @param activity
+     * @param activity default param
      */
-    public void verifyStoragePermissions(Activity activity) {
+    private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE);
 
@@ -80,12 +80,18 @@ public class MainActivity extends AppCompatActivity {
                     String key = parts[1].split("\"")[2];
 
                     String[] moreParts = line.split("devId");
-                    String devId = moreParts[1].split("\"")[2];
-
-                    text.append(devId + ": " + key);
-                    text.append('\n');
-                } else {
-
+                    if (moreParts.length > 1) {
+                        String devId = moreParts[1].split("\"")[2];
+                        text.append(devId);
+                        text.append(": ");
+                        text.append(key);
+                        text.append('\n');
+                    } else {
+                        Log.d("TuyaKeyGrab", "moreParts: " + moreParts[0]);
+                        text.append("no id: ");
+                        text.append(key);
+                        text.append('\n');
+                    }
                 }
             }
             br.close();
