@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String E_FAMILY_CLOUD_FILE = "/Android/data/com.efamily.cloud/cache/1.abj";
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuilder text = new StringBuilder();
         text.append("devId: localKey");
         text.append('\n');
+        text.append('\n');
         Log.d("TuyaKeyGrab", "file path:" + family.getAbsolutePath());
         Log.d("TuyaKeyGrab", "file exists:" + family.exists());
 
@@ -73,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader br = new BufferedReader(new FileReader(family));
 
             String line;
+            ArrayList<String> devIds = new ArrayList<>();
+            ArrayList<String> keys = new ArrayList<>();
 
             while ((line = br.readLine()) != null) {
                 if (line.contains("localKey")) {
@@ -82,15 +86,23 @@ public class MainActivity extends AppCompatActivity {
                     String[] moreParts = line.split("devId");
                     if (moreParts.length > 1) {
                         String devId = moreParts[1].split("\"")[2];
-                        text.append(devId);
-                        text.append(": ");
-                        text.append(key);
-                        text.append('\n');
+                        if (!(devIds.contains(devId) || devId.length() != 20)) {
+                            devIds.add(devId);
+                            text.append(devId);
+                            text.append(": ");
+                            keys.add(key);
+                            text.append(key);
+                            text.append('\n');
+                            text.append('\n');
+                        }
                     } else {
-                        Log.d("TuyaKeyGrab", "moreParts: " + moreParts[0]);
-                        text.append("no id: ");
-                        text.append(key);
-                        text.append('\n');
+                        if (!(keys.contains(key))) {
+                            text.append("no id: ");
+                            keys.add(key);
+                            text.append(key);
+                            text.append('\n');
+                            text.append('\n');
+                        }
                     }
                 }
             }
