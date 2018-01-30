@@ -12,7 +12,7 @@ $ExternalStorageDirectory/Android/data/com.efamily.cloud/cache/1.abj
 
 ### Releases
 
-app-debug.apk is the compiled app, v0.1 in [Releases Tab](https://github.com/bobalob/TuyaKeyGrab/releases)
+app-release.apk is the compiled app in [Releases Tab](https://github.com/bobalob/TuyaKeyGrab/releases)
 
 
 Original idea from [Exilit](https://github.com/exilit)
