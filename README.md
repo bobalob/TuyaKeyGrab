@@ -1,6 +1,8 @@
 # TuyaKeyGrab
 
-### Grabs localKey from eFamilyCloud app cache file **Only works with v 1.0.7 or earlier of the eFamilyCloud app**
+### Grabs localKey from eFamilyCloud app cache file 
+
+**Only works with v 1.0.7 or earlier of the eFamilyCloud app**
 
 * Install and login to eFamilyCloud (preferably in an emulator)
 [Play Store Link](https://play.google.com/store/apps/details?id=com.efamily.cloud&hl=en)
