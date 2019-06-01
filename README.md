@@ -1,4 +1,4 @@
-# TuyaKeyGrab
+# TuyaKeyGrab - NO LONGER FUNCTIONAL - see here for further options - https://github.com/codetheweb/tuyapi
 
 ### Grabs localKey from eFamilyCloud app cache file 
 
